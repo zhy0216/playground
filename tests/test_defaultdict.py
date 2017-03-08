@@ -13,7 +13,7 @@ def test_non_function_default():
     assert len(d) == 1
 
 def test_function_default():
-    d = DefaultDict(int)
+    d = DefaultDict(lambda x: 0)
     assert d[EMPTY] == 0
     assert len(d) == 1
 
