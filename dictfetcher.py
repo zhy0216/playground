@@ -1,0 +1,4 @@
+
+
+class DictFetcherMixin(object):
+    pass
