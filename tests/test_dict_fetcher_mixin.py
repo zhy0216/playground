@@ -33,7 +33,7 @@ class DictFetcher(dict, DictFetcherMixin):
 df = DictFetcher(d)
 
 def test_simple_dot_expression():
-    assert df["c.d.f.g"] == "1234"
+    assert df["c.d.f.g"]["c.d.f.g"] == "1234"
 
 
 def test_simple_star_expression():
