@@ -1,6 +1,7 @@
 from fnmatch import fnmatch
 
 _ = lambda : _
+
 class DictFetcherMixin(object):
     def get_doc_by_path(self, path):
         if type(path) == str:
