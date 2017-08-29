@@ -1,10 +1,7 @@
 from functools import partial
 from types import FunctionType
-from typing import Dict
-from inspect import signature, _empty
-from itertools import zip_longest, starmap
-
-# https://github.com/python/cpython/blob/3.6/Lib/typing.py#L1610
+from inspect import signature
+from itertools import starmap
 
 
 def _raise(msg: str, error=ValueError):
@@ -21,14 +18,11 @@ class Overloader:
         # print(f"dispatcher: {func.__name__}")
         sig = signature(func)
         self.env[tuple(para.annotation for para in sig.parameters.values())] = func
-        return partial(_raise, "you need to use overloader")
+        return lambda *arg: _raise("you need to use overloader")
 
     def __call__(self, *args):
         for arg_types, func in self.env.items():
             if all(starmap(isinstance, zip(args, arg_types))):
                 return func(*args)
-
-
-
 
 
