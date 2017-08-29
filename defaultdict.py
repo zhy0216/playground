@@ -2,6 +2,7 @@ import collections
 
 _ = lambda: _
 
+
 class DefaultDict(collections.defaultdict):
     def __init__(self, default_factor=None, *arg, **kwargs):
         collections.defaultdict.__init__(self, _, *arg, **kwargs)

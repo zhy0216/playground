@@ -1,6 +1,7 @@
 import random
 from method_tracer import tracer
 
+
 class A:
     def __init__(self):
         self.a = 1
@@ -12,6 +13,7 @@ class A:
 
     def c(self):
         self.b(self.random_int)
+
 
 def test_tracer():
     im_a = A()

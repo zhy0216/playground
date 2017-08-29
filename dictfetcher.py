@@ -1,6 +1,5 @@
 from fnmatch import fnmatch
 
-_ = lambda : _
 
 class DictFetcherMixin(object):
     def get_doc_by_path(self, path):
@@ -8,6 +7,7 @@ class DictFetcherMixin(object):
             path = path.split(".")
 
         length = len(path)
+
         def dfs(doc, path, index, cur_path, r):
             # print path, index, cur_path, r
             if index >= length:
